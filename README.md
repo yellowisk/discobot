@@ -11,6 +11,10 @@ DISCORD_TOKEN
 3. Preencha o arquivo `.env` com o token do seu bot do Discord
 4. Execute o arquivo `main.py`
 
+## Como mandar mensagems
+Para mandar mensagens privadas para o bot, basta adicionar o prefixo `!` antes da mensagem.
+Para mandar mensagens para o bot no canal, basta mandar a mensagem normalmente.
+
 ## Comandos
 - `/hello`: O bot responde com "Hello, Worlds!"
 - `/speak <texto>`: O bot repete o texto passado como argumento
