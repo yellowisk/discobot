@@ -2,6 +2,14 @@ Esse projeto é destinado ao ensino de programação em Python para alunos do pr
 
 Neste projeto, os alunos desenvolveram um bot do Discord que realiza ações simples, como responder a mensagens e executar comandos.
 
+## Adicione o bot ao seu servidor
+1. Acesse o [Discord Developer Portal](https://discord.com/developers/applications)
+2. Crie uma nova aplicação
+3. Crie um bot na aba "Bot"
+4. Copie o token do bot
+5. Acesse o link `https://discord.com/oauth2/authorize?client_id=CLIENT_ID&scope=bot` no seu navegador, substituindo `CLIENT_ID` pelo ID da sua aplicação
+6. Adicione o bot ao seu servidor
+
 ## Como rodar o projeto
 1. Clone o repositório
 2. Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
@@ -19,7 +27,7 @@ Para mandar mensagens para o bot no canal, basta mandar a mensagem normalmente.
 - `/hello`: O bot responde com "Hello, Worlds!"
 - `/speak <texto>`: O bot repete o texto passado como argumento
 - `/enviar_para <mensagem> <usuario>`: O bot envia uma mensagem para o usuário mencionado
-- `/matematica <operacao> <numero1> <numero2>`: O bot realiza a operação matemática passada como argumento com os números passados como argumento
+- `/matematica <numero1> <operacao> <numero2>`: O bot realiza a operação matemática passada como argumento com os números passados como argumento
 - `/ordenar <numeros>`: O bot ordena os números passados como argumento
 - `/sortear <numeros>`: O bot sorteia um número entre os números passados como argumento
 - `/jokenpo <jogada>`: O bot joga jokenpo com o usuário
