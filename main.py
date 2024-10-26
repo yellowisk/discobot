@@ -16,7 +16,7 @@ arvore = app_commands.CommandTree(cliente)
 
 
 # Função para enviar mensagens
-async def send_message(mensagem: Message, mensagem_do_usuario):
+async def enviar_mensagem(mensagem: Message, mensagem_do_usuario):
     if not mensagem_do_usuario:
         print('Mensagem vazia')
         return
@@ -38,7 +38,7 @@ async def hello(interacao: Integration):
 
 
 @arvore.command(name='speak')
-@app_commands.describe(o_que_dizer='O que dizer')
+@app_commands.describe(o_que_dizer='O que o bot deve dizer')
 async def speak(interacao: Integration, o_que_dizer: str):
     await interacao.response.send_message(o_que_dizer)
 
@@ -93,7 +93,7 @@ async def on_message(mensagem):
     
     print(f'[{canal}] {username}: {mensagem_do_usuario}')
 
-    await send_message(mensagem, mensagem.content)
+    await enviar_mensagem(mensagem, mensagem.content)
 
 
 def main():
