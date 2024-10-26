@@ -45,7 +45,7 @@ async def speak(interacao: Integration, o_que_dizer: str):
 
 @arvore.command(name='enviar_para')
 @app_commands.describe(mensagem='Mensagem a ser enviada', usuario='Usuário a receber a mensagem')
-async def send_to(interacao: Integration, mensagem: str, usuario: str):
+async def enviar_para(interacao: Integration, mensagem: str, usuario: str):
     guild = interacao.guild
     if guild is None:
         await interacao.response.send_message("Esse comando só pode ser usado em servidores.", ephemeral=True)
