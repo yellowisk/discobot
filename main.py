@@ -3,14 +3,17 @@ from dotenv import load_dotenv
 from discord import Intents, Client, Message, Integration, app_commands
 from respostas import obter_resposta
 
+
 load_dotenv()
 TOKEN = getenv('DISCORD_TOKEN')
+
 
 intents = Intents.default()
 intents.message_content = True # Necessário para receber mensagens
 intents.members = True # Necessário para acessar membros do servidor
 cliente: Client = Client(intents=intents)
 arvore = app_commands.CommandTree(cliente)
+
 
 # Função para enviar mensagens
 async def send_message(mensagem: Message, mensagem_do_usuario):
@@ -31,16 +34,16 @@ async def send_message(mensagem: Message, mensagem_do_usuario):
 
 @arvore.command(name='hello')
 async def hello(interacao: Integration):
-    await interacao.response.send_message('Hello! How are you?')
+    await interacao.response.send_message('Hello, worlds!')
 
 
 @arvore.command(name='speak')
-@app_commands.describe(o_que_dizer='O que dizer', para_quem='Para quem dizer')
-async def speak(interacao: Integration, o_que_dizer: str, para_quem: str):
-    await interacao.response.send_message(o_que_dizer + ' para: ' + para_quem)
+@app_commands.describe(o_que_dizer='O que dizer')
+async def speak(interacao: Integration, o_que_dizer: str):
+    await interacao.response.send_message(o_que_dizer)
 
 
-@arvore.command(name='send_to_user')
+@arvore.command(name='enviar_para')
 @app_commands.describe(mensagem='Mensagem a ser enviada', usuario='Usuário a receber a mensagem')
 async def send_to(interacao: Integration, mensagem: str, usuario: str):
     guild = interacao.guild
@@ -59,13 +62,15 @@ async def send_to(interacao: Integration, mensagem: str, usuario: str):
     except Exception as e:
         print(e)
         await interacao.response.send_message(f"Erro ao enviar mensagem para {usuario}. Cheque minhas permissões.", ephemeral=True)
-        
+
+
 # CONECTAR AO DISCORD
 @cliente.event
 async def on_ready():
     print(f'{cliente.user} se conectou ao Discord!')
     await arvore.sync()
-    
+
+  
 # GERENCIAR MENSAGENS
 @cliente.event
 async def on_message(mensagem):
@@ -80,8 +85,10 @@ async def on_message(mensagem):
 
     await send_message(mensagem, mensagem.content)
 
+
 def main():
     cliente.run(token=TOKEN)
-    
+
+
 if __name__ == '__main__':
     main()

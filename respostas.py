@@ -20,7 +20,7 @@ def obter_resposta(entrada_usuario: str):
     if mensagem == '':
         return 'Ué? Você tá aí?'
     elif 'olá' in mensagem or 'oi' or 'opa' in mensagem:
-        return 'Olá! Como você está?'
+        return 'Olá, Mundos!'
     elif 'Tudo bem?' in mensagem:
         return 'Estou bem, obrigado por perguntar!'
     elif 'bem' in mensagem or 'ótimo' or 'tudo bem' in mensagem:
