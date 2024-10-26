@@ -34,7 +34,7 @@ async def enviar_mensagem(mensagem: Message, mensagem_do_usuario):
 
 @arvore.command(name='hello')
 async def hello(interacao: Integration):
-    await interacao.response.send_message('Hello, worlds!')
+    await interacao.response.send_message('Hello, Worlds!')
 
 
 @arvore.command(name='speak')
