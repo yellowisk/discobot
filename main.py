@@ -63,6 +63,16 @@ async def send_to(interacao: Integration, mensagem: str, usuario: str):
         print(e)
         await interacao.response.send_message(f"Erro ao enviar mensagem para {usuario}. Cheque minhas permissões.", ephemeral=True)
 
+@arvore.command(name='matematica')
+@app_commands.describe(numero1='Primeiro número', operacao='Operação matemática', numero2='Segundo número')
+async def matematica(interacao: Integration, numero1: int, operacao: str, numero2: int):
+    return # Implementar função
+    
+@arvore.command(name='ordenar_numeros')
+@app_commands.describe(numeros='Números a serem ordenados')
+async def ordenar_numeros(interacao: Integration, numeros: str):
+    return # Implementar função
+
 
 # CONECTAR AO DISCORD
 @cliente.event
