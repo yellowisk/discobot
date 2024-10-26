@@ -14,4 +14,12 @@ DISCORD_TOKEN
 ## Comandos
 - `/hello`: O bot responde com "Hello, Worlds!"
 - `/speak <texto>`: O bot repete o texto passado como argumento
-- `enviar_para <mensagem> <usuario>`: O bot envia uma mensagem para o usuário mencionado
+- `/enviar_para <mensagem> <usuario>`: O bot envia uma mensagem para o usuário mencionado
+- `/matematica <operacao> <numero1> <numero2>`: O bot realiza a operação matemática passada como argumento com os números passados como argumento
+- `/ordenar <numeros>`: O bot ordena os números passados como argumento
+- `/sortear <numeros>`: O bot sorteia um número entre os números passados como argumento
+- `/jokenpo <jogada>`: O bot joga jokenpo com o usuário
+- `/moeda`: O bot joga cara ou coroa
+- `/dado <numero>`: O bot joga um dado de 6 faces ou de um número de faces passado como argumento
+- `/ping`: O bot responde com "Pong!"
+- `/help`: O bot responde com a lista de comandos disponíveis

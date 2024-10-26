@@ -1,4 +1,4 @@
-from random import choice, randint
+from random import choice
 
 piadas = [
             'Qual é o contrário de volátil? Vem cá sobrinho!',
@@ -30,10 +30,6 @@ def obter_resposta(entrada_usuario: str):
         return 'Que bom saber!'
     elif 'mal' in mensagem or 'terrível' in mensagem:
         return 'Sinto muito ouvir isso. Como posso ajudar?'
-    elif 'jogar dado' in mensagem:
-        return 'Você rolou um ' + str(randint(1, 6)) + '!'
-    elif 'cara ou coroa' in mensagem:
-        return 'Você tirou ' + choice(['cara', 'coroa']) + '!'
     elif 'piada' in mensagem:
         return choice(piadas)
     else:
