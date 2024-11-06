@@ -2,15 +2,12 @@ from os import getenv
 from dotenv import load_dotenv
 from discord import Intents, Client, Message, Integration, app_commands
 from respostas import obter_resposta
-
+from hard_coded_funcs import por_promocao, por_nome, por_nota, por_genero, gen_mensagem
 
 load_dotenv()
 TOKEN = getenv('DISCORD_TOKEN')
 
-
 intents = Intents.default()
-intents.message_content = True # Necessário para receber mensagens
-intents.members = True # Necessário para acessar membros do servidor
 cliente: Client = Client(intents=intents)
 arvore = app_commands.CommandTree(cliente)
 
@@ -36,42 +33,33 @@ async def enviar_mensagem(mensagem: Message, mensagem_do_usuario):
 async def hello(interacao: Integration):
     await interacao.response.send_message('Hello, Worlds!')
 
-
-@arvore.command(name='speak')
-@app_commands.describe(o_que_dizer='O que o bot deve dizer')
-async def speak(interacao: Integration, o_que_dizer: str):
-    await interacao.response.send_message(o_que_dizer)
-
-
-@arvore.command(name='enviar_para')
-@app_commands.describe(mensagem='Mensagem a ser enviada', usuario='Usuário a receber a mensagem')
-async def enviar_para(interacao: Integration, mensagem: str, usuario: str):
-    guild = interacao.guild
-    if guild is None:
-        await interacao.response.send_message("Esse comando só pode ser usado em servidores.", ephemeral=True)
-        return
+@arvore.command(name='jogos_por_genero')
+@app_commands.describe(genre='Gênero do jogo')
+async def jogos_por_genero(interacao: Integration, genre: str):
+    jogos = por_genero(genre)
+    mensagem = gen_mensagem(jogos)
+    await interacao.response.send_message(mensagem)
     
-    membro = guild.get_member_named(usuario)
-    if membro is None:
-        await interacao.response.send_message(f"Usuário {usuario} não encontrado.", ephemeral=True)
-        return
-
-    try:
-        await membro.send(mensagem)
-        await interacao.response.send_message(f"Mensagem enviada para {usuario}.", ephemeral=True)
-    except Exception as e:
-        print(e)
-        await interacao.response.send_message(f"Erro ao enviar mensagem para {usuario}. Cheque minhas permissões.", ephemeral=True)
-
-@arvore.command(name='matematica')
-@app_commands.describe(numero1='Primeiro número', operacao='Operação matemática', numero2='Segundo número')
-async def matematica(interacao: Integration, numero1: int, operacao: str, numero2: int):
-    return # Implementar função
+@arvore.command(name='jogos_em_promocao')
+@app_commands.describe(promocao='Se o jogo está em promoção')
+async def jogos_em_promocao(interacao: Integration, promocao: bool):
+    jogos = por_promocao(promocao)
+    mensagem = gen_mensagem(jogos)
+    await interacao.response.send_message(mensagem)
     
-@arvore.command(name='ordenar_numeros')
-@app_commands.describe(numeros='Números a serem ordenados')
-async def ordenar_numeros(interacao: Integration, numeros: str):
-    return # Implementar função
+@arvore.command(name='jogo_por_nome')
+@app_commands.describe(nome='Nome do jogo')
+async def jogo_por_nome(interacao: Integration, nome: str):
+    jogos = por_nome(nome)
+    mensagem = gen_mensagem(jogos)
+    await interacao.response.send_message(mensagem)
+    
+@arvore.command(name='jogos_por_nota')
+@app_commands.describe(nota_min='Nota mínima', nota_max='Nota máxima')
+async def jogos_por_nota(interacao: Integration, nota_min: float, nota_max: float):
+    jogos = por_nota(nota_min, nota_max)
+    mensagem = gen_mensagem(jogos)
+    await interacao.response.send_message(mensagem)
 
 
 # CONECTAR AO DISCORD
