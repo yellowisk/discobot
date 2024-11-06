@@ -1,0 +1,22 @@
+games = [
+    {"name": "The Witcher 3", "genres": ["RPG"], "on_promotion": False, "rating": 100},
+    {"name": "Cyberpunk 2077", "genres": ["RPG", "FPS"], "on_promotion": True, "rating": 40.0},
+    {"name": "Red Dead Redemption 2", "genres": ["RPG"], "on_promotion": False, "rating": 90.0},
+    {"name": "GTA V", "genres": ["RPG"], "on_promotion": False, "rating": 8.5},
+    {"name": "The Last of Us Part II", "genres": ["Ação", "Aventura"], "on_promotion": True, "rating": 70.0},
+    {"name": "God of War", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 90.5},
+    {"name": "Uncharted 4", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 90.0},
+    {"name": "Horizon Zero Dawn", "genres": ["Ação", "Aventura"], "on_promotion": True, "rating": 80.5},
+    {"name": "Bloodborne", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 70.0},
+    {"name": "Dark Souls III", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 80.5},
+    {"name": "Sekiro: Shadows Die Twice", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 9.0},
+    {"name": "Death Stranding", "genres": ["Ação", "Aventura"], "on_promotion": True, "rating": 80.0},
+    {"name": "Assassin's Creed Valhalla", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 80.5},
+    {"name": "Assassin's Creed Odyssey", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 60.0},
+    {"name": "Minecraft", "genres": ["Sandbox", "Adventure"], "on_promotion": False, "rating": 90.0},
+    {"name": "Terraria", "genres": ["Sandbox", "Adventure"], "on_promotion": False, "rating": 80.5},
+    {"name": "Stardew Valley", "genres": ["Sandbox", "Adventure"], "on_promotion": False, "rating": 90.0},
+    {"name": "The Sims 4", "genres": ["Sandbox", "Simulation"], "on_promotion": False, "rating": 50.5},
+    {"name": "Batman: Arkham Knight", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 90.8},
+    {"name": "Batman: Arkham City", "genres": ["Ação", "Aventura"], "on_promotion": False, "rating": 90.2}
+]
