@@ -1,4 +1,4 @@
-from hard_coded_games import games
+from discobot.hard_coded_games import games
 
 def por_promocao(ta_em_promocao):
     em_promo = []
