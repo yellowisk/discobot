@@ -1,0 +1,1 @@
+worker: python -m discobot/__main__.py
