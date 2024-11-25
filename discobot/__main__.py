@@ -1,7 +1,7 @@
 from os import getenv
 from dotenv import load_dotenv
 from discord import Intents, Client, Message, Integration, app_commands
-from respostas import obter_resposta
+from discobot.respostas import obter_resposta
 from discobot.hard_coded_funcs import por_promocao, por_nome, por_nota, por_genero, gen_mensagem
 from asyncio import run
 
