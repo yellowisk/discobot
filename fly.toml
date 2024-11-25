@@ -9,6 +9,9 @@ primary_region = 'gru'
 [build]
   builder = 'paketobuildpacks/builder:base'
 
+[deploy]
+  release_command = "python -m discobot.__main__"
+
 [env]
   PORT = '8080'
 
